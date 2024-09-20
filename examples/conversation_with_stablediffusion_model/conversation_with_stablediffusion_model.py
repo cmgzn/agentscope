@@ -29,7 +29,7 @@ def main() -> None:
 
     # Init two agents
     dialog_agent = DialogAgent(
-        name="Assistant",
+        name="Assistant", 
         sys_prompt="dreamy",  # replace by your image style prompts
         model_config_name="sd",  # replace by your model config name
     )
