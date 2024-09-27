@@ -9,6 +9,7 @@ Submodules
 
    agentscope.service.multi_modality.dashscope_services
    agentscope.service.multi_modality.openai_services
+   agentscope.service.multi_modality.stablediffusion_services
 
 Module contents
 ---------------

@@ -175,6 +175,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#agentscope.service.openai_image_to_text"><code class="docutils literal notranslate"><span class="pre">openai_image_to_text()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#agentscope.service.openai_edit_image"><code class="docutils literal notranslate"><span class="pre">openai_edit_image()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#agentscope.service.openai_create_image_variation"><code class="docutils literal notranslate"><span class="pre">openai_create_image_variation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#agentscope.service.sd_text_to_image"><code class="docutils literal notranslate"><span class="pre">sd_text_to_image()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#agentscope.service.tripadvisor_search"><code class="docutils literal notranslate"><span class="pre">tripadvisor_search()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#agentscope.service.tripadvisor_search_location_photos"><code class="docutils literal notranslate"><span class="pre">tripadvisor_search_location_photos()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#agentscope.service.tripadvisor_search_location_details"><code class="docutils literal notranslate"><span class="pre">tripadvisor_search_location_details()</span></code></a></li>
@@ -337,6 +338,10 @@
 <li class="toctree-l4"><a class="reference internal" href="agentscope.service.multi_modality.openai_services.html#agentscope.service.multi_modality.openai_services.openai_image_to_text"><code class="docutils literal notranslate"><span class="pre">openai_image_to_text()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="agentscope.service.multi_modality.openai_services.html#agentscope.service.multi_modality.openai_services.openai_text_to_audio"><code class="docutils literal notranslate"><span class="pre">openai_text_to_audio()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="agentscope.service.multi_modality.openai_services.html#agentscope.service.multi_modality.openai_services.openai_audio_to_text"><code class="docutils literal notranslate"><span class="pre">openai_audio_to_text()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="agentscope.service.multi_modality.stablediffusion_services.html">agentscope.service.multi_modality.stablediffusion_services module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="agentscope.service.multi_modality.stablediffusion_services.html#agentscope.service.multi_modality.stablediffusion_services.sd_text_to_image"><code class="docutils literal notranslate"><span class="pre">sd_text_to_image()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -2176,6 +2181,45 @@ value is a list of the paths to the generated images or URLs.</p>
 <p>&gt; {
 &gt;     ‘status’: ‘SUCCESS’,
 &gt;     ‘content’: {‘image_urls’: [‘VARIATION_URL1’, ‘VARIATION_URL2’]}
+&gt; }</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="agentscope.service.sd_text_to_image">
+<span class="sig-prename descclassname"><span class="pre">agentscope.service.</span></span><span class="sig-name descname"><span class="pre">sd_text_to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseurl</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="agentscope.service.service_response.html#agentscope.service.service_response.ServiceResponse" title="agentscope.service.service_response.ServiceResponse"><span class="pre">ServiceResponse</span></a></span></span><a class="reference internal" href="_modules/agentscope/service/multi_modality/stablediffusion_services.html#sd_text_to_image"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#agentscope.service.sd_text_to_image" title="Link to this definition"></a></dt>
+<dd><p>Generate image(s) based on the given prompt, and return image url(s).</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prompt</strong> (<cite>str</cite>) – The text prompt to generate image.</p></li>
+<li><p><strong>n</strong> (<cite>int</cite>, defaults to <cite>1</cite>) – The number of images to generate.</p></li>
+<li><p><strong>width</strong> (<cite>int</cite>, defaults to <cite>1024</cite>) – Width of the image.</p></li>
+<li><p><strong>height</strong> (<cite>int</cite>, defaults to <cite>1024</cite>) – Height of the image.</p></li>
+<li><p><strong>options</strong> (<cite>dict</cite>, defaults to <cite>None</cite>) – The options to override the sd-webui default settings.
+If not specified, will use the default settings.</p></li>
+<li><p><strong>baseurl</strong> (<cite>str</cite>, defaults to <cite>None</cite>) – The base url of the sd-webui.</p></li>
+<li><p><strong>save_dir</strong> (<cite>Optional[str]</cite>, defaults to ‘None’) – The directory to save the generated images. If not specified,
+will return the web urls.</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary with two variables: <cite>status</cite> and`content`.
+If <cite>status</cite> is ServiceExecStatus.SUCCESS,
+the <cite>content</cite> is a dict with key ‘fig_paths” and
+value is a list of the paths to the generated images.</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#agentscope.service.ServiceResponse" title="agentscope.service.ServiceResponse">ServiceResponse</a></p>
+</dd>
+</dl>
+<p class="rubric">示例</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;A beautiful sunset in the mountains&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sd_text_to_image</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>&gt; {
+&gt;     ‘status’: ‘SUCCESS’,
+&gt;     ‘content’: {‘image_urls’: [‘IMAGE_URL1’, ‘IMAGE_URL2’]}
 &gt; }</p>
 </dd></dl>
 

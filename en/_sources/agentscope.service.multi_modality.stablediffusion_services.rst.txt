@@ -1,0 +1,7 @@
+agentscope.service.multi\_modality.stablediffusion\_services module
+===================================================================
+
+.. automodule:: agentscope.service.multi_modality.stablediffusion_services
+   :members:
+   :undoc-members:
+   :show-inheritance:
