@@ -20,7 +20,11 @@ from .file.json import read_json_file, write_json_file
 from .sql_query.mysql import query_mysql
 from .sql_query.sqlite import query_sqlite
 from .sql_query.mongodb import query_mongodb
-from .web.search import bing_search, google_search
+from .web.search import (
+    bing_search,
+    google_search,
+    DDGS_search,
+)
 from .web.arxiv import arxiv_search
 from .web.tripadvisor import (
     tripadvisor_search_location_photos,
@@ -91,6 +95,7 @@ __all__ = [
     "write_json_file",
     "bing_search",
     "google_search",
+    "DDGS_search",
     "arxiv_search",
     "wikipedia_search",
     "wikipedia_search_categories",

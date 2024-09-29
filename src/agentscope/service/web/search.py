@@ -5,6 +5,11 @@ from ..service_response import ServiceResponse
 from ...utils.common import _requests_get
 from ..service_status import ServiceExecStatus
 
+try:
+    from duckduckgo_search import DDGS
+except ImportError:
+    DDGS = None
+
 
 def bing_search(
     question: str,
@@ -189,6 +194,62 @@ def google_search(
                 "title": result["title"],
                 "link": result["link"],
                 "snippet": result["snippet"],
+            }
+            for result in results
+        ],
+    )
+
+
+def DDGS_search(
+    question: str,
+    num_results: int = 10,
+    **kwargs: Any,
+) -> ServiceResponse:
+    """
+    Search question in DuckDuckGo Search API and return the searching results
+
+    Args:
+        question (`str`):
+            The search query string.
+        num_results (`int`, defaults to `10`):
+            The number of search results to return.
+        **kwargs (`Any`):
+            Additional keyword arguments to be included in the search query.
+            For more details, please refer to
+            https://github.com/deedy5/duckduckgo_search
+
+    Returns:
+        `ServiceResponse`: A dictionary with two variables: `status` and
+        `content`. The `status` variable is from the ServiceExecStatus enum,
+       and `content` is a list of search results or error information,
+       which depends on the `status` variable.
+       For each searching result, it is a dictionary with keys 'title',
+       'link', and 'snippet'.
+
+    Example:
+        .. code-block:: python
+
+            results = DDGS_search(
+                'Python programming',
+                num_results=2
+            )
+            if results.status == ServiceExecStatus.SUCCESS:
+                for result in results.content:
+                    print(result['title'], result['link'], result['snippet'])
+    """
+
+    results = DDGS().text(question, max_results=num_results, **kwargs)
+
+    if isinstance(results, str):
+        return ServiceResponse(ServiceExecStatus.ERROR, results)
+
+    return ServiceResponse(
+        ServiceExecStatus.SUCCESS,
+        [
+            {
+                "title": result["title"],
+                "link": result["href"],
+                "snippet": result["body"],
             }
             for result in results
         ],
