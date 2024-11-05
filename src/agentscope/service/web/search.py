@@ -193,7 +193,7 @@ def google_search(
             {
                 "title": result["title"],
                 "link": result["link"],
-                "snippet": result["snippet"],
+                "snippet": result.get("snippet", ""),
             }
             for result in results
         ],

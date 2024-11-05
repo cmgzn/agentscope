@@ -1,4 +1,4 @@
-[English](https://github.com/modelscope/agentscope/blob/main/README.md) | 中文
+[English](https://github.com/modelscope/agentscope/blob/main/README.md) | 中文 | [日本語](https://github.com/modelscope/agentscope/blob/main/README_JA.md)
 
 # AgentScope
 
@@ -390,40 +390,6 @@ pre-commit install
         title   = {AgentScope: A Flexible yet Robust Multi-Agent Platform},
         journal = {CoRR},
         volume  = {abs/2402.14034},
-        year    = {2024},
-    }
-    ```
-
-2. [On the Design and Analysis of LLM-Based Algorithms](https://arxiv.org/abs/2407.14788)
-
-    ```
-    @article{llm_based_algorithms,
-        author  = {Yanxi Chen and
-                   Yaliang Li and
-                   Bolin Ding and
-                   Jingren Zhou},
-        title   = {On the Design and Analysis of LLM-Based Algorithms},
-        journal = {CoRR},
-        volume  = {abs/2407.14788},
-        year    = {2024},
-    }
-    ```
-
-3. [Very Large-Scale Multi-Agent Simulation in AgentScope](https://arxiv.org/abs/2407.17789)
-
-    ```
-    @article{agentscope_simulation,
-        author  = {Xuchen Pan and
-                   Dawei Gao and
-                   Yuexiang Xie and
-                   Zhewei Wei and
-                   Yaliang Li and
-                   Bolin Ding and
-                   Ji{-}Rong Wen and
-                   Jingren Zhou},
-        title   = {Very Large-Scale Multi-Agent Simulation in AgentScope},
-        journal = {CoRR},
-        volume  = {abs/2407.17789},
         year    = {2024},
     }
     ```
