@@ -52,19 +52,19 @@ def prepare_func_prompt(function: Callable) -> str:
     return func_prompt
 
 
-COMMANDS_DISCRIPTION_DICT = {
+COMMANDS_DESCRIPTION_DICT = {
     "exit": "exit: Executed when the current task is complete, takes no arguments",  # noqa
     "scroll_up": "scroll_up: Scrolls up the current open file, will scroll up and show you the 100 lines above your current lines, takes no arguments",  # noqa
     "scroll_down": "scroll_down: Scrolls down the current open file, will scroll down and show you the 100 lines below your current lines'takes no arguments",  # noqa
     "goto": "goto: This will take you directly to the line <line_num> and show you the 100 lines below it. \n       line_num (int): The line number to go to.",  # noqa
 }
 
-COMMANDS_DISCRIPTION_DICT["write_file"] = prepare_func_prompt(write_file)
-COMMANDS_DISCRIPTION_DICT["read_file"] = prepare_func_prompt(read_file)
-COMMANDS_DISCRIPTION_DICT["execute_shell_command"] = prepare_func_prompt(
+COMMANDS_DESCRIPTION_DICT["write_file"] = prepare_func_prompt(write_file)
+COMMANDS_DESCRIPTION_DICT["read_file"] = prepare_func_prompt(read_file)
+COMMANDS_DESCRIPTION_DICT["execute_shell_command"] = prepare_func_prompt(
     execute_shell_command,
 )
-COMMANDS_DISCRIPTION_DICT["exec_py_linting"] = prepare_func_prompt(
+COMMANDS_DESCRIPTION_DICT["exec_py_linting"] = prepare_func_prompt(
     exec_py_linting,
 )
 
@@ -218,7 +218,7 @@ class SWEAgent(AgentBase):
         command_name = command_call["name"]
         command_args = command_call["arguments"]
         if command_name == "exit":
-            return "Current task finished, exitting."
+            return "Current task finished, exiting."
         if command_name in ["goto", "scroll_up", "scroll_down"]:
             if command_name == "goto":
                 line = command_call["arguments"]["line_num"]
@@ -244,7 +244,7 @@ class SWEAgent(AgentBase):
                     f"Scrolling down from file {self.cur_file} to line {line}."
                 )
                 command_failed_str = (
-                    f"Failed to scrool down {self.cur_file} to line {line}"
+                    f"Failed to scroll down {self.cur_file} to line {line}"
                 )
             read_status = read_file(self.cur_file, line, line + 100)
             if read_status.status == "success":
@@ -270,5 +270,5 @@ class SWEAgent(AgentBase):
         return "No such command"
 
     def get_commands_prompt(self) -> None:
-        for name, desc in COMMANDS_DISCRIPTION_DICT.items():
+        for name, desc in COMMANDS_DESCRIPTION_DICT.items():
             self.commands_prompt += f"{name}: {desc}\n"
